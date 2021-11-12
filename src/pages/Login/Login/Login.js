@@ -60,7 +60,7 @@ const Login = () => {
                         {authError && <Alert severity="error">{authError}</Alert>}
                     </form>
                     <p>-----------------------</p>
-                    <Button onClick='' variant="contained">Google Sign In</Button>
+                    <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
                 </Grid>
 
                 <Grid item xs={12} md={6}>

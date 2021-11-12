@@ -5,6 +5,10 @@ import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login/Login';
 import Register from './pages/Login/Register/Register';
 import NotFound from './pages/NotFound/NotFound';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import Products from './pages/Home/Products/Products';
+import Purchase from './pages/Purchase/Purchase';
 
 function App() {
   return (
@@ -18,8 +22,17 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path="/purchase">
+              <Purchase></Purchase>
+            </PrivateRoute>
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <Route path="/products">
+              <Products></Products>
             </Route>
             <Route path="*">
               <NotFound></NotFound>
