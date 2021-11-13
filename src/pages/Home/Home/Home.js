@@ -14,11 +14,10 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://secure-beach-46076.herokuapp.com/watches/home')
+        fetch('https://secure-beach-46076.herokuapp.com/watches')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
-
     return (
         <div>
             <Navigation></Navigation>

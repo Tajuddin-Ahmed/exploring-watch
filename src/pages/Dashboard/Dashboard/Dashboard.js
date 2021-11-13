@@ -22,9 +22,6 @@ import {
     Link,
     useRouteMatch
 } from "react-router-dom";
-// import DashboardHome from '../DashboardHome/DashboardHome';
-// import MakeAdmin from './MakeAdmin/MakeAdmin';
-// import AddDoctor from './AddDoctor/AddDoctor';
 import useAuth from '../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import MakeAdmin from './MakeAddmin/MakeAdmin';
