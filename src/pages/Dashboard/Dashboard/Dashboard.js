@@ -29,6 +29,9 @@ import useAuth from '../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import MakeAdmin from './MakeAddmin/MakeAdmin';
 import AddProduct from './AddProduct/AddProduct';
+import MyOrders from './MyOrders/MyOrders';
+import PrivateRoute from '../../Login/PrivateRoute/PrivateRoute';
+import ManageOrders from './ManageOrders/ManageOrders';
 
 const drawerWidth = 200;
 
@@ -56,19 +59,24 @@ function Dashboard(props) {
             <Link style={{ textDecoration: "none" }} to="/review" underline="none">
                 <Button color="inherit">Review</Button>
             </Link><br />
-            {admin && <Box>
-                <Link style={{ textDecoration: "none" }} to={`${url}/makeAdmin`} underline="none">
-                    <Button color="inherit">Make Admin</Button>
-                </Link>
-                <Link style={{ textDecoration: "none" }} to={`${url}/addProduct`} underline="none">
-                    <Button color="inherit">Add Products</Button>
-                </Link>
-            </Box>}
+            {
+                admin && <Box>
+                    <Link style={{ textDecoration: "none" }} to={`${url}/makeAdmin`} underline="none">
+                        <Button color="inherit">Make Admin</Button>
+                    </Link>
+                    <Link style={{ textDecoration: "none" }} to={`${url}/addProduct`} underline="none">
+                        <Button color="inherit">Add Products</Button>
+                    </Link>
+                    <Link style={{ textDecoration: "none" }} to={`${url}/manageOrders`} underline="none">
+                        <Button color="inherit">Manage Orders</Button>
+                    </Link>
+                </Box>
+            }
             <Link to="" style={{ textDecoration: "none" }} underline="none">
                 <Button onClick={logOut} color="inherit">logout</Button>
             </Link>
 
-        </div>
+        </div >
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
@@ -135,14 +143,17 @@ function Dashboard(props) {
             >
                 <Toolbar />
                 <Switch>
-                    {/* <Route exact path={path}>
-                        <DashboardHome></DashboardHome>
-                    </Route> */}
+                    <PrivateRoute exact path={path}>
+                        <MyOrders></MyOrders>
+                    </PrivateRoute>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
                     <AdminRoute path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageOrders`}>
+                        <ManageOrders></ManageOrders>
                     </AdminRoute>
                 </Switch>
 

@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     const { token } = useAuth();
     const handleAdminSubmit = (e) => {
         const user = { email }
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://secure-beach-46076.herokuapp.com/users/admin', {
             method: "PUT",
             headers: {
                 "authorization": `Bearer ${token}`,

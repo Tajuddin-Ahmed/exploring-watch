@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/watches/home')
+        fetch('https://secure-beach-46076.herokuapp.com/watches/home')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
@@ -44,7 +44,7 @@ const Home = () => {
                                 Price: £{product.price}
                             </Typography>
                         </CardContent>
-                        <Link style={{ textDecoration: 'none' }} sx={{ textAlign: 'center', m: 1, }} to="/purchase">
+                        <Link style={{ textDecoration: 'none' }} sx={{ textAlign: 'center', m: 1, }} to={`/purchase/${product._id}`}>
                             <Button sx={{ textAlign: 'center' }} variant="contained" size="small">Buy Now</Button>
                         </Link>
                     </Card>

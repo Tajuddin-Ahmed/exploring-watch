@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 const Product = ({ product }) => {
-    const { name, description, price, img } = product;
+    const { _id, name, description, price, img } = product;
     return (
         <Grid item xs={2} sm={4} md={4}>
             <Card sx={{ maxWidth: 400, textAlign: "center" }}>
@@ -30,7 +30,7 @@ const Product = ({ product }) => {
                     </Typography>
                 </CardContent>
                 {/* <CardActions > */}
-                <Link style={{ textDecoration: 'none' }} sx={{ textAlign: 'center', m: 1 }} to="/purchase">
+                <Link style={{ textDecoration: 'none' }} sx={{ textAlign: 'center', m: 1 }} to={`/purchase/${_id}`}>
                     <Button sx={{ textAlign: 'center' }} variant="contained" size="small">Buy Now</Button>
                 </Link>
 

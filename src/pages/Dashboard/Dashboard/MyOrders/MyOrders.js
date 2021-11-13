@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-const ManageOrders = () => {
+const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
         fetch('https://secure-beach-46076.herokuapp.com/orders')
@@ -27,26 +27,23 @@ const ManageOrders = () => {
     }
     return (
         <>
-            <h2>Manage Orders</h2>
+            <h2>My Orders</h2>
             <div style={{ textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
-
                 <table style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px', textAlign: 'center' }}>
                     <thead>
                         <tr>
-                            <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Name</th>
-                            <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Email</th>
-                            <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Address</th>
-                            <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Phone Number</th>
+                            <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Product Name</th>
+                            <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Description</th>
+                            <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Price</th>
                             <th style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>Action</th>
                         </tr>
                     </thead>
                     {
                         orders.map(order => <tbody>
                             <tr>
-                                <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>{order.name}</td>
-                                <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>{order.email}</td>
-                                <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>{order.address}</td>
-                                <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>{order.phone}</td>
+                                <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>{order.productName}</td>
+                                <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>{order.description}</td>
+                                <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}>£{order.price}</td>
                                 <td style={{ border: '1px solid black', borderCollapse: "collapse", padding: '20px' }}> <button onClick={() => handleDelete(order._id)}>delete</button> </td>
                             </tr>
                         </tbody>)
@@ -57,4 +54,4 @@ const ManageOrders = () => {
     )
 };
 
-export default ManageOrders;
+export default MyOrders;
